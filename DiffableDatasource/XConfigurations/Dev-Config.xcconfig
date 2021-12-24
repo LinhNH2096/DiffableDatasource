@@ -1,0 +1,10 @@
+//
+//  Dev-Config.xcconfig
+//  DiffableDatasource
+//
+//  Created by Nguyễn Hồng Lĩnh on 24/12/2021.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+PREFIX_NAME_APP_NAME = DEV-DiffableDatasource

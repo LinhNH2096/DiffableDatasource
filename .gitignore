@@ -1,0 +1,20 @@
+DiffableDatasource.xcodeproj/xcuserdata
+*.xcworkspace
+Pods
+
+## User settings
+xcuserdata/
+
+## App packaging
+*.dSYM.zip
+*.dSYM
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Carthage
+#
+# Add this line if you want to avoid checking in source code from Carthage dependencies.
+Carthage/
