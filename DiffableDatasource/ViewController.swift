@@ -13,6 +13,10 @@ enum Section {
 
 struct Item: Hashable {
     var title: String
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
+    }
 }
 
 class ViewController: UIViewController {
@@ -25,7 +29,7 @@ class ViewController: UIViewController {
     
     private var datasource: UITableViewDiffableDataSource<Section, Item>!
     
-    private var items = [Item]()
+    private var items = Set<Item>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +61,7 @@ extension ViewController: UITableViewDelegate {
         for i in 1...100 {
             actionSheet.addAction(UIAlertAction(title: "Item \(i)", style: .default, handler: { [unowned self] _ in
                 let item = Item(title: "Item \(i)")
-                self.items.append(item)
+                self.items.insert(item)
                 self.updateDatasource()
             }))
         }
@@ -69,7 +73,7 @@ extension ViewController: UITableViewDelegate {
     func updateDatasource() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections([.first])
-        snapshot.appendItems(self.items)
+        snapshot.appendItems(Array(self.items).sorted(by: { $0.title < $1.title }))
         datasource.apply(snapshot)
     }
 }
