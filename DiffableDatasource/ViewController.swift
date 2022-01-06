@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK: Entity
+// MARK: Model
 enum Section {
     case first
 }
